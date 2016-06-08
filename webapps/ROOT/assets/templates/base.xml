@@ -20,17 +20,31 @@
             <kiln:block name="title">Kiln: </kiln:block>
           </title>
           <kiln:block name="css">
-            <link href="{$kiln:assets-path}/foundation/css/normalize.css"
-                  rel="stylesheet" type="text/css" />
+            <link href="{$kiln:assets-path}/styles/base.css"
+              rel="stylesheet" />
+            <link href="{$kiln:assets-path}/styles/site.css"
+              rel="stylesheet" />
+            <!-- Foundation -->
+            <!--<link href="{$kiln:assets-path}/foundation/css/normalize.css"
+                  rel="stylesheet" />
             <link href="{$kiln:assets-path}/foundation/css/foundation.min.css"
-                  rel="stylesheet" type="text/css" />
-            <link href="{$kiln:assets-path}/styles/base.css" rel="stylesheet"
-                  type="text/css" />
-            <link href="{$kiln:assets-path}/styles/site.css" rel="stylesheet"
-                  type="text/css" />
+                  rel="stylesheet" />-->
+            <!-- Bootstrap 3.3.6 -->
+            <link href="{$kiln:assets-path}/bootstrap/css/bootstrap-theme.css" rel="stylesheet"
+              type="text/css" />
+            <link href="{$kiln:assets-path}/bootstrap/css/bootstrap.css" rel="stylesheet"
+              type="text/css" />
+            <link href="{$kiln:assets-path}/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+              type="text/css" />
           </kiln:block>
           <kiln:block name="js">
-            <script src="{$kiln:assets-path}/foundation/js/vendor/custom.modernizr.js">&#160;</script>
+            <!--<script src="{$kiln:assets-path}/foundation/js/vendor/custom.modernizr.js">&#160;</script>-->
+            <script src="{$kiln:assets-path}/scripts/admin.js">&#160;</script>
+            <!-- Bootstrap -->
+            <script src="{$kiln:assets-path}/bootstrap/js/jquery-1.12.4.js">&#160;</script>
+            <script src="{$kiln:assets-path}/bootstrap/js/bootstrap.js">&#160;</script>
+            <script src="{$kiln:assets-path}/bootstrap/js/bootstrap.min.js"></script>
+            <!--<script src="{$kiln:assets-path}/bootstrap/js/npm.js">&#160;</script>-->
           </kiln:block>
           <kiln:block name="head-extra"></kiln:block>
         </head>
@@ -38,7 +52,8 @@
       <kiln:block name="body">
         <body>
           <kiln:block name="navigation">
-            <nav class="top-bar">
+            <!-- Foundation code -->
+            <!--<nav class="top-bar">
               <kiln:block name="main-navigation">
                 <ul class="title-area">
                   <li class="name">
@@ -63,16 +78,78 @@
                   </ul>
                 </section>
               </kiln:block>
+            </nav>-->
+            <!-- Bootstrap code -->
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+              <kiln:block name="main-navigation">
+                <div class="container">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{$kiln:context-path}/">Kiln</a>
+                  </div>
+                  <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                      <!--<li class="active"><a href="#">Home</a></li>
+                      <li><a href="#about">About</a></li>
+                      <li><a href="#contact">Contact</a></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Action</a></li>
+                          <li><a href="#">Another action</a></li>
+                          <li><a href="#">Something else here</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li class="dropdown-header">Nav header</li>
+                          <li><a href="#">Separated link</a></li>
+                          <li><a href="#">One more separated link</a></li>
+                        </ul>
+                      </li>-->
+                      <xsl:apply-templates mode="main-menu"
+                        select="/aggregation/kiln:nav" />
+                    </ul>
+                    <!--<ul class="nav navbar-nav navbar-right">
+                      <!-\-<li><a href="../navbar/">Default</a></li>
+                      <li><a href="../navbar-static-top/">Static top</a></li>
+                      <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>-\->
+                      <xsl:apply-templates mode="main-menu"
+                        select="/aggregation/kiln:nav" />
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Action</a></li>
+                          <li><a href="#">Another action</a></li>
+                          <li><a href="#">Something else here</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li class="dropdown-header">Nav header</li>
+                          <li><a href="#">Separated link</a></li>
+                          <li><a href="#">One more separated link</a></li>
+                        </ul>
+                      </li>
+                    </ul>-->
+                  </div><!--/.nav-collapse -->
+                </div>
+              </kiln:block>
             </nav>
           </kiln:block>
           <kiln:block name="page-header">
-            <div class="row">
+            <div class="container">
+              <h1>
+                <kiln:block name="page-heading"></kiln:block>
+              </h1>
+            </div>
+              
+            <!--<div class="row">
               <div class="large-12 columns">
                 <h1>
                   <kiln:block name="page-heading"></kiln:block>
                 </h1>
               </div>
-            </div>
+            </div>-->
           </kiln:block>
           <kiln:block name="content-section">
             <main>
@@ -80,18 +157,25 @@
             </main>
           </kiln:block>
           <kiln:block name="footer">
-            <footer>
-              <p>Powered by <a href="http://kcl-ddh.github.io/kiln/">Kiln</a></p>
-              <p>Theme by <a href="http://foundation.zurb.com/">Foundation</a></p>
+            <footer class="footer navbar-fixed-bottom">
+              <div class="container">
+                <p class="text-muted">Powered by <a href="http://kcl-ddh.github.io/kiln/">Kiln</a></p>
+                <p class="text-muted">Using <a href="http://getbootstrap.com/">Bootstrap</a></p>
+              </div>
             </footer>
+            
+            <!--<footer>
+              <p>Powered by <a href="http://kcl-ddh.github.io/kiln/">Kiln</a></p>
+              <p>Using <a href="http://getbootstrap.com/">Bootstrap</a></p>
+            </footer>-->
           </kiln:block>
           <kiln:block name="end-js">
             <!-- Since we make use of jQuery for other purposes, there
                  is no reason to use Foundation's check whether to use
                  jQuery or Zepto. -->
-            <script src="{$kiln:assets-path}/foundation/js/vendor/jquery.js" />
+            <!--<script src="{$kiln:assets-path}/foundation/js/vendor/jquery.js" />
             <script src="{$kiln:assets-path}/foundation/js/foundation.min.js" />
-            <script>$(document).foundation();</script>
+            <script>$(document).foundation();</script>-->
           </kiln:block>
         </body>
       </kiln:block>

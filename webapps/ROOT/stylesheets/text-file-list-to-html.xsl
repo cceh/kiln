@@ -3,7 +3,8 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:template match="files" mode="text-index">
-    <table class="tablesorter">
+    
+    <table class="table table-hover tablesorter">
       <thead>
         <tr>
           <th>Filename</th>

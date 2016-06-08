@@ -1,3 +1,7 @@
+ body {
+    padding-top: 70px;
+  }
+
 footer {
          background: none repeat scroll 0 0 #fafafa;
          border-top: 1px solid #eeeeee;
@@ -38,4 +42,4 @@ pre {
 /* Fix for Foundation bug
 https://github.com/zurb/foundation/issues/2332 that is unfixed in
 4.3.1. */
-.accordion > section.active > .content { display: block; position: relative; }
+/*.accordion > section.active > .content { display: block; position: relative; }*/
