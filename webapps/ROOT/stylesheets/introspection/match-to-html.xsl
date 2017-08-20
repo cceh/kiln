@@ -49,7 +49,7 @@
     </div>
   </xsl:template>
 
-  <xsl:template name="attribute" mode="introspection">
+  <xsl:template name="attribute"><!-- mode="introspection" -->
     <xsl:param name="check-kiln-value" select="0" />
     <xsl:param name="link" select="''" />
     <xsl:text> </xsl:text>

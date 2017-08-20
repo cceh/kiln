@@ -2,7 +2,8 @@
 <xsl:stylesheet version="2.0"
                 xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
                 xmlns:map="http://apache.org/cocoon/sitemap/1.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <!-- Generate a complete view of the map:match that processes the
        supplied URL, with any other referenced map:matches included as

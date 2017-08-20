@@ -179,7 +179,7 @@
           <!--Add Xalan / Xerces information using custom Xalan
                extension (if it's present). -->
           <xsl:if test="function-available('xalan:checkEnvironment')">
-            <li><xsl:apply-templates select="xalan:checkEnvironment()"/></li>
+            <li>can't look for Xalan info...<!--<xsl:apply-templates select="xalan:checkEnvironment()"/>--></li>
           </xsl:if>
         </ul>
       </div>
