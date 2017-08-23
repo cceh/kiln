@@ -1,6 +1,12 @@
 Kiln
 ====
 
+<details>
+ <summary>XSLT 3.0</summary>
+ 
+This fork of Kiln uses Saxon 9.8 HE and [its *basic conformance*](http://www.saxonica.com/html/products/latest.html#saxon9-8) with XSLT 3.0.
+</details><br/>
+
 **Kiln is an open source multi-platform framework for building and deploying
 complex websites whose source content is primarily in XML**. It brings together
 various independent software components into an integrated whole that provides
