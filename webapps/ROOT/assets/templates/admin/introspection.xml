@@ -21,12 +21,18 @@
     </kiln:block>
 
     <kiln:block name="header">
-      <h1>Kiln introspection</h1>
+      <div class="container">
+        <h1>Kiln introspection</h1>
+      </div>
     </kiln:block>
 
     <kiln:block name="content">
-      <div class="row">
-        <div class="large-12 columns">
+      <!--<div class="row">
+        <div class="large-12 columns">-->
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-12">
           <p>In order to aid development, certain introspections of
           the workings of Kiln are provided here.</p>
 
@@ -54,12 +60,18 @@
             processes that URL.</p>
 
             <form action="url/">
-              <div class="row">
-                <div class="large-6 columns">
-                  <input type="text" name="url" />
-                </div>
-                <div class="large-6 columns">
-                  <input type="submit" value="Find match" />
+              <div class="container">
+                
+                <div class="row">
+                  <div class="col-md-6">
+              <!--<div class="row">
+                <div class="large-6 columns">-->
+                    <input type="text" name="url" />
+                  </div>
+                  <!--<div class="large-6 columns">-->
+                  <div class="col-md-6">
+                    <input type="submit" value="Find match" />
+                  </div>
                 </div>
               </div>
             </form>
@@ -83,6 +95,9 @@
                                    select="/aggregation/dir:directory[@name='templates']/*" />
             </ul>
           </section>
+        <!--</div>
+      </div>-->
+          </div>
         </div>
       </div>
     </kiln:block>

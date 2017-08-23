@@ -15,16 +15,25 @@
     <kiln:block name="title"><kiln:super />RDF harvest result for <xsl:value-of select="$file" /></kiln:block>
 
     <kiln:block name="header">
-      <h1>RDF harvest result for <xsl:value-of select="$file" /></h1>
+      <div class="container">
+        <h1>RDF harvest result for <xsl:value-of select="$file" /></h1>
+      </div>
     </kiln:block>
 
     <kiln:block name="content">
-      <div class="row">
-        <div class="large-12 columns">
+      <!--<div class="row">
+        <div class="large-12 columns">-->
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-12">
           <xsl:apply-templates select="/aggregation/response"
                                mode="rdf" />
+          </div>
         </div>
       </div>
+        <!--</div>
+      </div>-->
     </kiln:block>
   </kiln:child>
 

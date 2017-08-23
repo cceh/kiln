@@ -21,8 +21,10 @@
         <xsl:text>Harvest all (RDF)</xsl:text>
       </a>
     </p>
+    
+    
 
-    <table>
+    <table class="table table-hover tablesorter">
       <thead>
         <tr>
           <th scope="col">File</th>

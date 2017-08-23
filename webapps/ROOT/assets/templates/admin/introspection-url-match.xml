@@ -19,20 +19,34 @@
     </kiln:block>
 
     <kiln:block name="header">
-      <h1>
-        <xsl:text>Kiln match introspection for the URL </xsl:text>
-        <xsl:text>/</xsl:text>
-        <xsl:value-of select="/aggregation/map:match/@kiln:pattern" />
-      </h1>
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <h1>
+              <xsl:text>Kiln match introspection for the URL </xsl:text>
+              <xsl:text>/</xsl:text>
+              <xsl:value-of select="/aggregation/map:match/@kiln:pattern" />
+            </h1>
+          </div>
+        </div>
+      </div>
     </kiln:block>
 
     <kiln:block name="content">
-      <div class="row">
-        <div class="large-12 columns">
+      <!--<div class="row">
+        <div class="large-12 columns">-->
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-12">
           <xsl:apply-templates select="/aggregation/map:match"
                                mode="introspection" />
+          </div>
         </div>
       </div>
+        <!--</div>
+      </div>-->
     </kiln:block>
   </kiln:child>
 

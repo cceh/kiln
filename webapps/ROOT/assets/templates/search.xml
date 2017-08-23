@@ -22,8 +22,11 @@
     </kiln:block>
 
     <kiln:block name="content">
-      <div class="row">
-        <div class="large-4 columns">
+      <!--<div class="row">
+        <div class="large-4 columns">-->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
           <form action="." method="get">
             <input name="q" placeholder="Search terms" type="search">
               <xsl:attribute name="value">
@@ -37,9 +40,11 @@
           <xsl:apply-templates select="/aggregation/response/lst[@name='facet_counts']/lst[@name='facet_fields']"
                                mode="search-results" />
         </div>
-        <div class="large-8 columns">
-          <xsl:apply-templates select="/aggregation/response/result"
+        <!--<div class="large-8 columns">-->
+          <div class="col-md-4">
+            <xsl:apply-templates select="/aggregation/response/result"
                                mode="search-results" />
+          </div>
         </div>
       </div>
     </kiln:block>

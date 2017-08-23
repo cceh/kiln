@@ -15,13 +15,39 @@
 
   <kiln:child>
     <kiln:block name="title"><kiln:super/>Index</kiln:block>
-    <kiln:block name="header"><h1>Documents</h1></kiln:block>
+    
+    <kiln:block name="css">
+      <kiln:super />
+      <link href="{$kiln:assets-path}/styles/tablesorter.css"
+        rel="stylesheet" />
+    </kiln:block>
+    
+    <kiln:block name="header">
+      <div class="container">
+        <h1>Documents</h1>
+      </div>
+    </kiln:block>
     <kiln:block name="content">
-      <div class="row">
-        <div class="large-12 columns">
+      <!--<div class="row">
+        <div class="large-12 columns">-->
+      <div class="container">
+        
+        <div class="row">
+          <div class="col-md-12">
           <xsl:apply-templates mode="tei" select="/aggregation/dir:directory" />
+          </div>
         </div>
       </div>
+        <!--</div>
+      </div>-->
+    </kiln:block>
+    
+    <kiln:block name="end-js">
+      <kiln:super />
+      <script src="{$kiln:assets-path}/scripts/jquery.tablesorter.js" />
+      <script>
+        <xsl:text>$(document).ready(function() {$(".tablesorter").tablesorter();});</xsl:text>
+      </script>
     </kiln:block>
   </kiln:child>
 

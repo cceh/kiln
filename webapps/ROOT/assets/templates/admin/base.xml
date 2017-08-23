@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
   <kiln:root xmlns:kiln="http://www.kcl.ac.uk/artshums/depts/ddh/kiln/ns/1.0"
-             xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    
     <!-- Imports the default variables. -->
     <xsl:import href="cocoon://_internal/template/xsl/stylesheets/defaults.xsl" />
-  
-    <!-- Imports the menu stylesheet -->
-    <xsl:import href="cocoon://_internal/template/xsl/stylesheets/menu/menu.xsl" />
-  
-    <xsl:include href="cocoon://_internal/url/reverse.xsl" />
-  
+    
     <kiln:block name="html">
       <html class="no-js">
         <kiln:block name="head">
           <head>
             <meta name="viewport" content="width=device-width" />
             <title><kiln:block name="title">Kiln admin: </kiln:block></title>
-            <kiln:block name="js">
-              <script src="{$kiln:assets-path}/foundation/js/vendor/custom.modernizr.js">&#160;</script>
-              <script src="{$kiln:assets-path}/scripts/admin.js">&#160;</script>
-            </kiln:block>
             <kiln:block name="css">
-              <link href="{$kiln:assets-path}/foundation/css/normalize.css"
+              <link href="{$kiln:assets-path}/styles/admin.css"
+                rel="stylesheet" />
+              <!-- Foundation -->
+              <!--<link href="{$kiln:assets-path}/foundation/css/normalize.css"
                     rel="stylesheet" />
               <link href="{$kiln:assets-path}/foundation/css/foundation.min.css"
-                    rel="stylesheet" />
-              <link href="{$kiln:assets-path}/styles/admin.css"
-                    rel="stylesheet" />
+                    rel="stylesheet" />-->
+              <!-- Bootstrap 3.3.6 -->
+              <link href="{$kiln:assets-path}/bootstrap/css/bootstrap-theme.css" rel="stylesheet"
+                type="text/css" />
+              <link href="{$kiln:assets-path}/bootstrap/css/bootstrap.css" rel="stylesheet"
+                type="text/css" />
+              <link href="{$kiln:assets-path}/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+                type="text/css" />
+            </kiln:block>
+            <kiln:block name="js">
+              <!--<script src="{$kiln:assets-path}/foundation/js/vendor/custom.modernizr.js">&#160;</script>-->
+              <script src="{$kiln:assets-path}/scripts/admin.js">&#160;</script>
+              <!-- Bootstrap -->
+              <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+              <script src="{$kiln:assets-path}/bootstrap/js/jquery-1.12.4.js">&#160;</script>
+              <!--<script src="{$kiln:assets-path}/bootstrap/js/bootstrap.js">&#160;</script>-->
+              <script src="{$kiln:assets-path}/bootstrap/js/bootstrap.min-3.3.6.js"></script>
+              <!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
+              <!--<script src="{$kiln:assets-path}/bootstrap/js/npm.js">&#160;</script>-->
             </kiln:block>
             <kiln:block name="head-extra"></kiln:block>
           </head>
@@ -35,10 +45,10 @@
         <kiln:block name="body">
           <body>
             <kiln:block name="top-bar">
-              <nav class="top-bar">
+              <!--<nav class="top-bar">
                 <ul class="title-area">
                   <li class="name">
-                    <h1><a href="{kiln:url-for-match('local-admin-home-page', (), 0)}">Kiln Admin</a></h1>
+                    <h1><a href="{$kiln:mount-path}/admin/">Kiln Admin</a></h1>
                   </li>
                   <li class="toggle-topbar menu-icon">
                     <a href="#"><span>Menu</span></a>
@@ -46,14 +56,88 @@
                 </ul>
                 <section class="top-bar-section">
                   <ul class="left">
-                    <xsl:apply-templates mode="main-menu"
-                                         select="/aggregation/kiln:nav" />
+                    <li class="has-dropdown">
+                      <a href="#">Components</a>
+                      <ul class="dropdown">
+                        <li><a href="{$kiln:mount-path}/admin/system-status.html">Cocoon system status</a></li>
+                        <li class="has-dropdown">
+                          <a href="#">Solr</a>
+                          <ul class="dropdown">
+                            <li><a href="/solr/">Admin</a></li>
+                            <li><a href="{$kiln:mount-path}/admin/solr/index/all.html">Index all documents</a></li>
+                          </ul>
+                        </li>
+                        <li class="has-dropdown">
+                          <a href="#">Sesame</a>
+                          <ul class="dropdown">
+                            <li><a href="/openrdf-workbench/">Admin</a></li>
+                            <li><a href="{$kiln:mount-path}/admin/rdf/harvest/all.html">Harvest all documents</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a href="{$kiln:mount-path}/admin/introspection/">Introspection</a></li>
+                    <li><a href="http://kiln.readthedocs.org/en/latest/">Documentation</a></li>
                   </ul>
                   <ul class="right">
-                    <li><a href="{kiln:url-for-match('local-home-page', (), 0)}">Site Home</a></li>
+                    <li><a href="{$kiln:mount-path}/">Site Home</a></li>
                   </ul>
                 </section>
+              </nav>-->
+              
+              <nav class="navbar navbar-inverse navbar-fixed-top">
+                <kiln:block name="main-navigation">
+                  <div class="container">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="{$kiln:mount-path}/admin/">Kiln Admin</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                      <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Components <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="{$kiln:mount-path}/admin/system-status.html">Cocoon system status</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Solr</li>
+                            <li>  
+                              <ul>
+                                <li><a href="/solr/">Admin</a></li>
+                                <li><a href="{$kiln:mount-path}/admin/solr/index/all.html">Index all documents</a></li>
+                              </ul>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Sesame</li>
+                            <li>
+                              <ul>
+                                <li><a href="/openrdf-workbench/">Admin</a></li>
+                                <li><a href="{$kiln:mount-path}/admin/rdf/harvest/all.html">Harvest all documents</a></li>
+                              </ul>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{$kiln:mount-path}/admin/introspection/">Introspection</a></li>
+                            <li><a href="http://kiln.readthedocs.org/en/latest/">Documentation</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                      <ul class="nav navbar-nav navbar-right">
+                        <!--<li><a href="../navbar/">Default</a></li>
+                        <li><a href="../navbar-static-top/">Static top</a></li>
+                        <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>-->
+                        <xsl:apply-templates mode="main-menu"
+                          select="/aggregation/kiln:nav" />
+                        <li><a href="{$kiln:mount-path}/">Site Home</a></li>
+                      </ul>
+                    </div><!--/.nav-collapse -->
+                  </div>
+                </kiln:block>
               </nav>
+              
             </kiln:block>
             <header class="row">
               <div class="large-12 columns">
@@ -65,22 +149,30 @@
             </main>
             <footer>
               <kiln:block name="footer">
-                <p>Powered by <a href="http://kcl-ddh.github.io/kiln/">Kiln</a></p>
-                <p>Theme by <a href="http://foundation.zurb.com/">Foundation</a></p>
+                <footer class="footer navbar-fixed-bottom">
+                  <div class="container">
+                    <p class="text-muted">Powered by <a href="http://kcl-ddh.github.io/kiln/">Kiln</a></p>
+                    <p class="text-muted">Using <a href="http://getbootstrap.com/">Bootstrap</a></p>
+                  </div>
+                </footer>
               </kiln:block>
             </footer>
             <kiln:block name="end-js">
-              <!-- Since we make use of jQuery for other purposes, there
-                   is no reason to use Foundation's check whether to use
-                   jQuery or Zepto. -->
-              <script src="{$kiln:assets-path}/foundation/js/vendor/jquery.js" />
-              <script src="{$kiln:assets-path}/foundation/js/foundation.min.js" />
-              <script>$(document).foundation();</script>
+              <!--<script>
+                <xsl:text>document.write('&lt;script src="</xsl:text>
+                <xsl:value-of select="$kiln:assets-path" />
+                <xsl:text>/foundation/js/vendor/' + ('__proto__' in {} </xsl:text>
+                <xsl:text>? 'zepto' : 'jquery') + '.js">&lt;\/script>');</xsl:text>
+              </script>
+              <script src="{$kiln:assets-path}/foundation/js/foundation.min.js">
+                <xsl:text> </xsl:text>
+              </script>
+              <script>$(document).foundation();</script>-->
             </kiln:block>
           </body>
         </kiln:block>
       </html>
     </kiln:block>
-  
+
   </kiln:root>
 </root>

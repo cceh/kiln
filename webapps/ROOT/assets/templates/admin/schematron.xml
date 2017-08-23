@@ -21,7 +21,9 @@
     </kiln:block>
 
     <kiln:block name="header">
-      <h1>Schematron validaton results for <xsl:value-of select="$file" /></h1>
+      <div class="container">
+        <h1>Schematron validaton results for <xsl:value-of select="$file" /></h1>
+      </div>
     </kiln:block>
 
     <kiln:block name="content">

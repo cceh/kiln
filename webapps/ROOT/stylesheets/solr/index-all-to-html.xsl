@@ -27,7 +27,7 @@
     <section>
       <h1>Add new data</h1>
 
-      <table class="pure-table pure-table-horizontal">
+      <table class="table table-hover pure-table pure-table-horizontal">
         <thead>
           <tr>
             <th scope="col">File</th>
