@@ -49,7 +49,7 @@
     </div>
   </xsl:template>
 
-  <xsl:template name="attribute" mode="introspection">
+  <xsl:template name="attribute"><!-- mode="introspection" -->
     <xsl:param name="check-kiln-value" select="0" />
     <xsl:param name="link" select="''" />
     <xsl:text> </xsl:text>
@@ -105,7 +105,7 @@
           <xsl:value-of select="kiln:url-for-match(
             'local-admin-introspection-template-xslt',
             (substring-after(substring-before(../@kiln:src, '.xml'),
-             'assets/templates/')))" />
+             'assets/templates/')), 0)" />
         </xsl:when>
         <xsl:otherwise>
           <xsl:value-of select="''" />
