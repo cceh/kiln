@@ -22,8 +22,7 @@
         
         <div class="row">
           <div class="col-md-12">
-            <xsl:apply-templates select="/status:statusinfo" />
-            <!--<xsl:apply-templates select="/aggregation/status:statusinfo" />-->
+            <xsl:apply-templates select="/aggregation/status:statusinfo" />
           </div>
         </div>
       </div>
